@@ -6,12 +6,19 @@ const openButton = document.getElementById("openButton");
 const moreButton = document.getElementById("moreButton");
 const backButton = document.getElementById("backButton");
 
-// OPEN THE LETTER
+// OPEN THE LETTER + START MUSIC 
 
 openButton.addEventListener("click", function() {
 
     welcome.classList.add("hidden");
     letter.classList.remove("hidden");
+
+    // START BACKGROUND MUSIC
+    music.volume = 0.35;
+
+    music.play().catch(error => {
+        console.log("Music playback was blocked:", error);
+    });
 
     window.scrollTo(0, 0);
 
